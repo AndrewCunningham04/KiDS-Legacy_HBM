@@ -15,3 +15,8 @@ __pycache__/
 # Animation frames
 Plots/Animations/F samples frames/
 Plots/Animations/Q samples frames/
+
+Python_files/create_Q.slurm
+Python_files/long_chain.slurm
+Python_files/test_num_gals.slurm
+Python_files/test_num_warmup.slurm

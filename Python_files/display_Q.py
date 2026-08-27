@@ -196,7 +196,7 @@ def animate_Q(
         # -------------------------------
 
         animation.save(
-            './Sampling/Plots/Data/Q samples.gif',
+            './Sampling/Plots/Animations/Q samples.gif',
             writer=PillowWriter(fps=fps),
             dpi=300,
             savefig_kwargs={
