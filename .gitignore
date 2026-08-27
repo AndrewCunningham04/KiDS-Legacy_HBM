@@ -1,0 +1,17 @@
+# Virtual environment
+.venv/
+
+# Old code
+Old framework/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Slurm output
+*.err
+*.out
+
+# Animation frames
+Plots/Animations/F samples frames/
+Plots/Animations/Q samples frames/
