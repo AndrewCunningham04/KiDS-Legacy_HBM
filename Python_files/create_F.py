@@ -114,7 +114,9 @@ def read_sparse_Q(selection, zmax_index, num_gals, print_stats=False):
 
         indices_new.append(idx_new)
         values_new.append(vals_new)
-        norms.append(np.sum(vals_new))
+        
+        #norms.append(np.sum(vals_new))
+        norms.append(512)
 
     max_len = max(len(x) for x in indices_new)
     total_entries = sum(len(x) for x in indices_new)
