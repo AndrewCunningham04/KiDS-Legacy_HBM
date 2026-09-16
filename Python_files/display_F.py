@@ -307,6 +307,7 @@ def animate_F(F_grid, normalise=False):
         frame_folder = Path('./Sampling/Plots/Animations/Normalised F samples frames')
 
         F_plot = F_norm
+        vmax=0.2
 
     else:
 
@@ -315,11 +316,12 @@ def animate_F(F_grid, normalise=False):
         frame_folder = Path('./Sampling/Plots/Animations/F samples frames')
 
         F_plot = F_grid
-
+        vmax = 0.04
+        
     # Create folder for PNG frames
     frame_folder.mkdir(parents=True, exist_ok=True)
 
-    vmax = 0.04
+    
 
     im0 = axs[0].imshow(
         F_plot.mean(axis=0).T,
@@ -427,21 +429,6 @@ def animate_F(F_grid, normalise=False):
             'facecolor': '#f5f5f5'
         }
     )
-
-    # -----------------------------
-    # Save PNG frames
-    # -----------------------------
-
-    for frame in range(50):
-
-        update(frame)
-
-        fig.savefig(
-            frame_folder / f'F samples-{frame}.png',
-            dpi=300,
-            facecolor='#f5f5f5',
-            bbox_inches='tight'
-        )
 
     return ani
 
@@ -819,28 +806,12 @@ def computation():
     plt.savefig('./Sampling/Plots/Slides/Computation.png', bbox_inches='tight', dpi=300, facecolor=fig.get_facecolor())
 
 def main():
-    warmup_F_grids=[
-        load_F("test_num_warmup_10.npy"),
-        load_F("test_num_warmup_50.npy"),
-        load_F("test_num_warmup_100.npy"),
-        load_F('test_num_warmup_500.npy'),
-        load_F('test_num_warmup_1000.npy')
-    ]
-
-    show_galaxy_size_grids=[
-        load_F("increase_num_gals0.npy"),
-        load_F("increase_num_gals1.npy"),
-        load_F("increase_num_gals2.npy"),
-        load_F("increase_num_gals3.npy"),
-    ]
-
-    F_grid_long=load_F("long_chain.npy")
-    F_grid=show_galaxy_size_grids[-1]
+    F_grid=load_F('norm_512.npy')
 
     #F_samples(F_grid)
     #single_psmf(F_grid, z_idx=6)
     #psmf(F_grid, num_snakes=0)
-    #animate_F(F_grid, normalise=False)
+    animate_F(F_grid, normalise=True)
     
     #run_all(F_grid)
 
