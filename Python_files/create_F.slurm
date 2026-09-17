@@ -12,6 +12,13 @@ source /home/u6dl/andrew.u6dl/.venv/bin/activate
 python "Sampling/Python_files/create_F.py" \
     --num_warmup 500 \
     --num_samples 200 \
-    --num_gals 100000 \
-    --num_chains 64 \
+    --num_gals 200000 \
+    --num_chains 32 \
     --filename "norm_512.npy"
+
+python "Sampling/Python_files/create_F.py" \
+    --num_warmup 100 \
+    --num_samples 200 \
+    --num_gals 200000 \
+    --num_chains 32 \
+    --filename "norm_512_100.npy"
